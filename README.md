@@ -1,5 +1,5 @@
 # equidiax
 Notre site de courses hippique
 
-## EQUIPE
+## COLLABORATEURS
 Romain, Mael, Jérémy
