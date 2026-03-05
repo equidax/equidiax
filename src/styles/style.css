@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 html, body {
 	margin: 0; border: 0;
-	font-family: Arial, sans-serif;
+	font-family: "League Spartan", sans-serif;
 }
 
 nav {
@@ -16,6 +18,7 @@ nav ul {
 nav ul li {
 	margin-left: 10px;
 	color: #FFF;
+	text-transform: uppercase;
 }
 nav ul li:last-child {
 	margin-right: 20px;
@@ -23,4 +26,29 @@ nav ul li:last-child {
 nav ul li a {
 	color: #FFF;
 	text-decoration: none;
+	opacity: 0.7;
+	transition: .2s opacity;
+}
+nav ul li a:hover {
+	opacity: 1;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0F3D2E;
+  color: #FFF;
+  text-align: center;
+}
+.footer .social-media img {
+  width: 30px;
+  margin-top: 20px;
+}
+.footer .social-media img:first-child {
+	margin-right: 10px;
+}
+.footer .social-media img:last-child {
+	margin-left: 10px;
 }
