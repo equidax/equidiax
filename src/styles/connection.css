@@ -1,0 +1,40 @@
+body {
+    background-color: #F5F5F5
+;
+}
+.container {
+
+    text-align: center;
+
+}
+.container .title {
+    color: #DFBE4F;
+    font-size: 50px;
+}
+.container form input {
+    width: 250px;
+    height: 50px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    font-size: 1em;
+    border: 0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.container form button {
+    height: 50px;
+    width: 260px;
+    background-color: #DFBE4F;
+    color: #FFF;
+    border: 0;
+    font-size: 1em;
+    text-transform: uppercase;
+    border-radius: 10px;
+    opacity: 0.6;
+    transition: .2s opacity;
+    cursor: pointer;
+}
+.container form button:hover {
+    opacity: 1;
+}
