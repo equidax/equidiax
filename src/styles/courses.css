@@ -1,0 +1,68 @@
+/* Les courses disponible */
+.container {
+    margin: 50px;
+    padding: 10px; 
+    background-color: #0F3D2E;
+    color: #FFF;
+    text-align: center;
+    font-weight: 900;
+}
+.container .content {
+    width: 100%;
+    margin: 0 auto;
+}
+.container .courses {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.container .courses .date, .title, .inscription {
+
+    margin-right: 50px;
+
+}
+.container .courses .inscription button {
+    width: auto;
+    padding: 10px;
+    font-size: 20px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: #DFBE4F;
+    border: 0;
+}
+
+.historique {
+    margin: 50px;
+    padding: 10px; 
+    background-color: #0F3D2E;
+    color: #FFF;
+    text-align: center;
+    font-weight: 900;
+}
+.historique .content {
+    width: 100%;
+    margin: 0 auto;
+}
+.historique .courses {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.historique .courses .date, .inscription {
+
+    margin-right: 50px;
+
+}
+.historique .courses .inscription button {
+    width: auto;
+    padding: 10px;
+    font-size: 20px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: #DFBE4F;
+    border: 0;
+}
