@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+* {
 
+	box-sizing: border-box;
+
+}
 html, body {
 	margin: 0; border: 0;
 	font-family: "League Spartan", sans-serif;
@@ -16,27 +20,28 @@ nav ul {
 	list-style: none;
 }
 nav ul li {
-	margin-left: 10px;
-	color: #FFF;
+	margin-left: 20px;
+	color: #DFBE4F;
 	text-transform: uppercase;
 }
 nav ul li:last-child {
 	margin-right: 20px;
 }
 nav ul li a {
-	color: #FFF;
+	color: #DFBE4F;
 	text-decoration: none;
 	opacity: 0.7;
 	transition: .2s opacity;
-	font-size: 18px;
+	font-size: 30px;
 }
 nav ul li a:hover {
 	opacity: 1;
+	text-decoration-line: underline;
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
+  position: absolute;
+  bottom: -100px;
   left: 0;
   width: 100%;
   background-color: #0F3D2E;
@@ -58,4 +63,107 @@ nav ul li a:hover {
 }
 .footer .social-media img:last-child {
 	margin-left: 10px;
+}
+
+/* Contenu de la page d'accueil */
+.container .card-1 {
+	margin-top: 50px;
+	margin-left: 50px;
+	display: flex;
+}
+.container .card-1 img {
+	width: 500px;
+}
+.container .card-1 .infos-course {
+	background-color: #0F3D2E;
+	height: auto;
+	padding: 20px;
+	color: #FFF;
+}
+.container .card-1 .infos-course button {
+	margin-top: 20px;
+	margin-left: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #DFBE4F;
+	border: 0;
+	font-size: 20px;
+	font-weight: 900;
+	text-transform: uppercase;
+	transition	: .2s box-shadow;
+}
+.container .card-1 .title-infos {
+	padding-left: 50px;
+	padding-top: 70px;
+	text-align: center;
+}
+.container .card-1 .title-infos .title {
+	font-size: 40px;
+}
+.container .card-1 .title-infos .text {
+	font-size: 30px;
+}
+
+.container .card-2 {
+	margin-right: 50px;
+	margin-top: 50px;
+	float: right;
+	display: flex;
+}
+.container .card-2 img {
+	width: 500px;
+}
+.container .card-2 .infos-course {
+	background-color: #0F3D2E;
+	height: auto;
+	padding: 20px;
+	color: #FFF;
+}
+.container .card-2 .infos-course button {
+	margin-top: 20px;
+	margin-left: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #DFBE4F;
+	border: 0;
+	font-size: 20px;
+	font-weight: 900;
+	text-transform: uppercase;
+	transition: .2s box-shadow;
+}
+
+.container button:hover {
+	cursor: pointer;
+	box-shadow: 0 0 10px #DFBE4F;
+
+}
+
+.container .card-1 .infos-course {
+	background-color: #0F3D2E;
+	height: auto;
+	padding: 20px;
+	color: #FFF;
+}
+.container .card-2 .infos-course button {
+	margin-top: 20px;
+	margin-left: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #DFBE4F;
+	border: 0;
+	font-size: 20px;
+	font-weight: 900;
+	text-transform: uppercase;
+	transition	: .2s box-shadow;
+}
+.container .card-2 .title-infos {
+	padding-right: 50px;
+	padding-top: 70px;
+	text-align: center;
+}
+.container .card-2 .title-infos .title {
+	font-size: 40px;
+}
+.container .card-2 .title-infos .text {
+	font-size: 30px;
 }
