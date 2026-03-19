@@ -132,7 +132,7 @@ nav ul li a:hover {
 	transition: .2s box-shadow;
 }
 
-.container button:hover {
+.container .card-2 .infos-course button:hover {
 	cursor: pointer;
 	box-shadow: 0 0 10px #DFBE4F;
 

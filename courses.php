@@ -12,9 +12,9 @@
 		<nav>
 			<img src="src/img/logo blanc.png" alt="Logo du site" class="logo" />
 			<ul>
-				<li><a href="index.html">Accueil</a></li>
-				<li><a href="courses.html">Course</a></li>
-				<li><a href="Subscription.html">Compte</a></li>
+				<li><a href="index.php">Accueil</a></li>
+				<li><a href="courses.php">Course</a></li>
+				<li><a href="Subscription.php">Compte</a></li>
 			</ul>
 		</nav>
 

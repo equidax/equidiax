@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include 'script.php';
+include '_script.php';
 
 if(isset($_POST['email'], $_POST['password'])) {
 

@@ -66,3 +66,22 @@
     background-color: #DFBE4F;
     border: 0;
 }
+.historique .courses .inscription button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px #DFBE4F;
+}
+
+.historique .content .resultats button {
+    width: auto;
+    padding: 10px;
+    font-size: 20px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: #DFBE4F;
+    border: 0;
+}
+.historique .content .resultats button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px #DFBE4F;
+}
