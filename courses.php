@@ -61,7 +61,7 @@
                         <h2>Cours du 12 mars 2026</h2>
                         <p class="lieu">Hippodrome de Cholet</p>
                     </div>
-                    <div class="inscription">
+                    <div class="resultats">
                         <a href="#"><button>voir les résultats</button></a>
                     </div>
                 </div>
