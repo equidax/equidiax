@@ -1,3 +1,6 @@
+<?php
+    include 'src/script/_script.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,15 +36,56 @@
             <!-- Les courses disponibles -->
             <h1 class="maintitle">Courses disponible</h1>
             <?php
-            $courses = 0; // Remplacez cette ligne par votre logique pour récupérer les courses disponibles
-            while($courses != 5) {
+            // Requête pour récupérer les courses disponibles depuis la base de données
+            $request_courses = $bdd->query("SELECT * FROM course WHERE date_ >= NOW() ORDER BY date_ ASC");
+            while($data = $request_courses->fetch()) {
+
+                $id_course = $data['Id_Course'];
+                $date_course = $data['date_'];
+                $lieu_course = $data['lieu'];
+                $nbr_places_restantes = $data['place_Restante'];
+                $nbr_places_max = $data['nbr_Max_Place'];
+                $nbr_places_prises = $nbr_places_max - $nbr_places_restantes;
                 ?>
                 <div class="content">
                     <div class="courses">
-                        <div class="date">Dans 2jrs</div>
+                        <?php
+                        if(isset($_SESSION['type_account'])) {
+                            // Vérifier que l'utilisateur est un gestionnaire de course
+                            if($_SESSION['type_account'] == "g"){
+
+                                
+                                ?>
+                                <div class="check">
+                                    <!-- Remplacez la valeur de l'input par l'ID de la course correspondante -->
+                                    <form action="src/script/_Delete_course.php" method="post">
+                                    <input type="checkbox" name="check_course" id="check_course" value="<?php if(isset($id_course)) {echo $id_course;} ?>">
+                                </div>
+                                <?php
+                            }
+                        }
+                        ?>
+                        <div class="date">
+
+                        <?php
+                            $today = new DateTime();
+                            $dateJ = new DateTime($date_course);
+
+                            $interval = $today->diff($dateJ);
+
+                            $jours = $interval->days;
+
+                            if ($interval->invert) {
+                                echo "La date est passée de $jours jours";
+                            } else {
+                                echo "Il reste $jours jours";
+                            }
+                        ?>
+
+                        </div>
                         <div class="title">
-                            <h2>Cours du 13 mai 2026</h2>
-                            <p class="lieu">Hippodrome de Cholet</p>
+                            <h2>Course le <?php if(isset($date_course)) {echo date("d/m/Y à H\hi", strtotime($date_course));} ?></h2>
+                            <p class="lieu"><?php if(isset($lieu_course)) {echo $lieu_course;} ?></p>
                         </div>
                         <div class="inscription">
                             <?php
@@ -64,17 +108,17 @@
                                 header('Location: src/script/_Disconnect.php');
                             }
                             ?>
-                            <p class="nbr_participants"><span>5</span> places restantes</p>
+                            <p class="nbr_participants"><span><?php if(isset($nbr_places_restantes)) {echo $nbr_places_restantes;} ?></span> places restantes</p>
                         </div>
                     </div>
                 </div>
                 <?php
-                $courses += 1; // Remplacez cette ligne par votre logique pour arrêter la boucle après avoir affiché les courses disponibles
             }
             ?>
-
-
 		</div>
+        <!-- Permettre au gerstionnaire de supprimer une course -->
+        <button>supprimer une course</button>
+         </form>
 
         <div class="historique">
             <!-- Les courses passées -->
