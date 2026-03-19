@@ -12,7 +12,7 @@ if(isset($_POST['email'], $_POST['password'])) {
     $request_subscribe = $bdd->prepare('INSERT INTO utilisateur (mail, mdp) VALUES(?, ?)');
     $request_subscribe->execute([$email, $password]);
 
-    echo "<div class='message'>" . "Utilisateur créé... <a href='../../index.html'>" . "Retour à la page d'accueil!" . "</a>" . "</div>";
+    echo "<div class='message'>" . "Utilisateur créé... <a href='../../index.php'>" . "Retour à la page d'accueil!" . "</a>" . "</div>";
 }
 
 ?>

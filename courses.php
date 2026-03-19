@@ -14,40 +14,65 @@
 			<ul>
 				<li><a href="index.php">Accueil</a></li>
 				<li><a href="courses.php">Course</a></li>
-				<li><a href="Subscription.php">Compte</a></li>
+				<?php
+				session_start();
+				if (isset($_SESSION['id_user'])) {
+				?>
+				<li><a href="profil.php">compte</a></li>
+				<?php
+				} else {
+				?>
+				<li><a href="Connection.php">connexion</a></li>
+				<?php
+				}
+				?>
 			</ul>
 		</nav>
 
 		<div class="container">
             <!-- Les courses disponibles -->
-            <h1 class="title">Courses disponible</h1>
-            <div class="content">
-                <div class="courses">
-                    <div class="date">Dans 2jrs</div>
-                    <div class="title">
-                        <h2>Cours du 13 mai 2026</h2>
-                        <p class="lieu">Hippodrome de Cholet</p>
-                    </div>
-                    <div class="inscription">
-                        <a href="#"><button>s'inscrire</button></a>
-                        <p class="nbr_participants"><span>5</span> places restantes</p>
+            <h1 class="maintitle">Courses disponible</h1>
+            <?php
+            $courses = 0; // Remplacez cette ligne par votre logique pour récupérer les courses disponibles
+            while($courses != 5) {
+                ?>
+                <div class="content">
+                    <div class="courses">
+                        <div class="date">Dans 2jrs</div>
+                        <div class="title">
+                            <h2>Cours du 13 mai 2026</h2>
+                            <p class="lieu">Hippodrome de Cholet</p>
+                        </div>
+                        <div class="inscription">
+                            <?php
+                            
+                            if(isset($_SESSION['type_account'])) {
+                                if($_SESSION['type_account'] == "g") {
+                                    ?>
+                                    <a href="#"><button>informations</button></a>
+                                    <?php
+                                } elseif($_SESSION['type_account'] == "p") {
+                                    ?>
+                                    <a href="#"><button>s'inscrire</button></a>
+                                    <?php
+                                } elseif($_SESSION['type_account'] == "v") {
+                                    ?>
+                                    <a href="#"><button>informations</button></a>
+                                    <?php
+                                }
+                            } else {
+                                header('Location: src/script/_Disconnect.php');
+                            }
+                            ?>
+                            <p class="nbr_participants"><span>5</span> places restantes</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <?php
+                $courses += 1; // Remplacez cette ligne par votre logique pour arrêter la boucle après avoir affiché les courses disponibles
+            }
+            ?>
 
-            <div class="content">
-                <div class="courses">
-                    <div class="date">Dans 7jrs</div>
-                    <div class="title">
-                        <h2>Cours du 20 mai 2026</h2>
-                        <p class="lieu">Hippodrome de Cholet</p>
-                    </div>
-                    <div class="inscription">
-                        <a href="#"><button>s'inscrire</button></a>
-                        <p class="nbr_participants"><span>12</span> places restantes</p>
-                    </div>
-                </div>
-            </div>
 
 		</div>
 
