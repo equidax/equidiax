@@ -2,7 +2,6 @@
 .container {
     margin: 50px;
     padding: 10px; 
-    background-color: #0F3D2E;
     color: #FFF;
     text-align: center;
     font-weight: 900;
@@ -16,6 +15,12 @@
     align-items: center;
     text-align: center;
     justify-content: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    background-color: #0F3D2E;
+}
+.container .maintitle {
+    color: #DFBE4F;
 }
 .container .courses .date, .title, .inscription {
 
@@ -56,7 +61,7 @@
     margin-right: 50px;
 
 }
-.historique .courses .inscription button {
+.content .courses .inscription button {
     width: auto;
     padding: 10px;
     font-size: 20px;
@@ -65,8 +70,9 @@
     font-weight: 900;
     background-color: #DFBE4F;
     border: 0;
+    transition: 0.2s box-shadow;
 }
-.historique .courses .inscription button:hover {
+.content .courses .inscription button:hover {
     cursor: pointer;
     box-shadow: 0 0 10px #DFBE4F;
 }
@@ -80,8 +86,13 @@
     font-weight: 900;
     background-color: #DFBE4F;
     border: 0;
+    transition: 0.2s box-shadow;
 }
 .historique .content .resultats button:hover {
     cursor: pointer;
     box-shadow: 0 0 10px #DFBE4F;
+}
+
+.footer {
+    bottom: -1000px;
 }
