@@ -34,10 +34,16 @@
 
 		<div class="container">
             <!-- Les courses disponibles -->
+            <?php
+            if(isset($_SESSION['message'])) {
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
+            }
+            ?>
             <h1 class="maintitle">Courses disponible</h1>
             <?php
             // Requête pour récupérer les courses disponibles depuis la base de données
-            $request_courses = $bdd->query("SELECT * FROM course WHERE date_ >= NOW() ORDER BY date_ ASC");
+            $request_courses = $bdd->query("SELECT * FROM course ORDER BY date_ ASC");
             while($data = $request_courses->fetch()) {
 
                 $id_course = $data['Id_Course'];

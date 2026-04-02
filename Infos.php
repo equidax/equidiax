@@ -5,6 +5,7 @@ require 'src/script/_script.php';
 if(!isset($_SESSION['id_user'])) {
     header('Location: src/script/_Disconnect.php');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +84,7 @@ if(!isset($_SESSION['id_user'])) {
                     echo "Il reste $jours jours";
                 }
             ?>
-            <form action="_Modif_courses.php" method="post">
+            <form action="" method="post">
                 <div class="input_donnees">
                     <div class="lieu">
                         <label for="lieu">Lieu de la course : </label>
@@ -114,7 +115,21 @@ if(!isset($_SESSION['id_user'])) {
             </form>
             </div>
             <?php
+            if(isset($_POST['delete_course'])) {
+                header('Location: src/script/_Delete_course.php?id_course=' . $id_course);
+            } elseif(isset($_POST['save_course'])) {
+                $new_lieu = htmlspecialchars($_POST['lieu']);
+                $new_date = htmlspecialchars($_POST['date']);
+                $new_nbr_places = htmlspecialchars($_POST['nbr_places']);
+
+                // Requête de mise à jour de la course
+                $request_update_course = $bdd->prepare('UPDATE course SET lieu = ?, date_ = ?, place_Restante = ? WHERE Id_Course = ?');
+                $request_update_course->execute([$new_lieu, $new_date, $new_nbr_places, $id_course]);
+
+                $_SESSION['message'] ="<div style='color: green;' class='message'>" . "Course mise à jour..." . "</div>";
+                header('Location: courses.php');
             }
+        }
         }
 
     }

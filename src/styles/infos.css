@@ -22,11 +22,12 @@
     cursor: pointer;
     margin: 10px;
 }
-.input_donnees .btn {
+.btn {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
-.input_donnees .btn button {
+.btn button {
     height: auto;
     width: auto;
     padding: 10px;
@@ -39,6 +40,9 @@
     cursor: pointer;
     transition: .2s box-shadow;
 }
-.input_donnees .btn button:hover {
+.btn button:first-child {
+    margin-right: 20px;
+}
+.btn button:hover {
     box-shadow: 0 0 10px #DFBE4F;
 }
