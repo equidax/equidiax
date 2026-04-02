@@ -65,7 +65,7 @@
                                 <div class="check">
                                     <!-- Remplacez la valeur de l'input par l'ID de la course correspondante -->
                                     <form action="src/script/_Delete_course.php" method="post">
-                                    <input type="checkbox" name="check_course" id="check_course" value="<?php if(isset($id_course)) {echo $id_course;} ?>">
+                                    <input type="checkbox" name="check_course" id="check_course" value="<?php if(isset($id_course)) {echo $id_course;} ?>" required>
                                 </div>
                                 <?php
                             }

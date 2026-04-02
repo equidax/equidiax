@@ -8,6 +8,7 @@
 		<title>EQUIDIAX | Site de courses hippique</title>
 		<link rel="icon" href="src/img/lechevalctrogénial.png" />
 		<link rel="stylesheet" href="src/styles/style.css" />
+		<link rel="stylesheet" href="src/styles/profil.css" />
 	</head>
 	<body>
 		<!-- Navigation -->
