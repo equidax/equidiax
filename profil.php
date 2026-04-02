@@ -52,6 +52,8 @@
 			}
 		?>
 		<?php
+		} else {
+			header('Location: src/script/_Disconnect.php');
 		}
 		?>
 

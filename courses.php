@@ -93,7 +93,7 @@
                             if(isset($_SESSION['type_account'])) {
                                 if($_SESSION['type_account'] == "g") {
                                     ?>
-                                    <a href="#"><button>informations</button></a>
+                                    <a href="Infos.php?id_course=<?= $id_course; ?>"><button>informations</button></a>
                                     <?php
                                 } elseif($_SESSION['type_account'] == "p") {
                                     ?>
@@ -116,8 +116,25 @@
             }
             ?>
 		</div>
-        <!-- Permettre au gerstionnaire de supprimer une course -->
-        <button>supprimer une course</button>
+        <!-- Permettre au gestionnaire de supprimer une course -->
+        <?php 
+        if(isset($_SESSION['type_account'])) {
+            if($_SESSION['type_account'] == "g") {
+                ?>
+                <div class="btn-gestion">
+                    <button class="btn-del" type="submit">supprimer une course</button>
+                    <button class="btn-add"><a href="profil.php">ajouter une course</a></button>
+                </div>
+                <?php
+            } elseif($_SESSION['type_account'] == "p") {
+                ?>
+                <?php
+            } elseif($_SESSION['type_account'] == "v") {
+                ?>
+                <?php
+            }
+        }
+        ?>
          </form>
 
         <div class="historique">
@@ -147,4 +164,3 @@
 		</footer>
 	</body>
 </html>
-²

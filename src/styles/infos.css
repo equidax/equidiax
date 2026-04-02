@@ -1,0 +1,44 @@
+/* Style et mise en page pour la page d'informations sur les courses */
+.infos_course {
+    text-align: center;
+}
+
+.infos_course h2 {
+    font-size: 30px;
+}
+.input_donnees {
+    margin-top: 20px;
+}
+.input_donnees label {
+    font-size: 20px;
+    padding: 10px;
+}
+.input_donnees input {
+    padding: 10px;
+    font-size: 20px;
+    border: 0;
+    background-color: #0F3D2E;
+    color: #FFF;
+    cursor: pointer;
+    margin: 10px;
+}
+.input_donnees .btn {
+    display: flex;
+    justify-content: center;
+}
+.input_donnees .btn button {
+    height: auto;
+    width: auto;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #DFBE4F;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 900;
+    border: 0;
+    cursor: pointer;
+    transition: .2s box-shadow;
+}
+.input_donnees .btn button:hover {
+    box-shadow: 0 0 10px #DFBE4F;
+}
