@@ -64,7 +64,7 @@
                                 ?>
                                 <div class="check">
                                     <!-- Remplacez la valeur de l'input par l'ID de la course correspondante -->
-                                    <form action="src/script/_Delete_course.php" method="post">
+        <form action="src/script/_Delete_course.php" method="post">
                                     <input type="checkbox" name="check_course" id="check_course" value="<?php if(isset($id_course)) {echo $id_course;} ?>">
                                 </div>
                                 <?php
@@ -141,8 +141,8 @@
             }
         }
         ?>
-         </form>
-         <div class="historique">
+        </form>
+        <div class="historique">
             
             <h1 class="title">Historique des courses</h1>
             <!-- Les courses passées -->
