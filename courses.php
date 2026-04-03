@@ -42,8 +42,8 @@
             ?>
             <h1 class="maintitle">Courses disponible</h1>
             <?php
-            // Requête pour récupérer les courses disponibles depuis la base de données
-            $request_courses = $bdd->query("SELECT * FROM course ORDER BY date_ ASC");
+            // Requête pour récupérer les courses disponibles depuis la base de données et les afficher en fonction de la date
+            $request_courses = $bdd->query("SELECT * FROM course WHERE date_ >= NOW() ORDER BY date_ ASC");
             while($data = $request_courses->fetch()) {
 
                 $id_course = $data['Id_Course'];
@@ -65,7 +65,7 @@
                                 <div class="check">
                                     <!-- Remplacez la valeur de l'input par l'ID de la course correspondante -->
                                     <form action="src/script/_Delete_course.php" method="post">
-                                    <input type="checkbox" name="check_course" id="check_course" value="<?php if(isset($id_course)) {echo $id_course;} ?>" required>
+                                    <input type="checkbox" name="check_course" id="check_course" value="<?php if(isset($id_course)) {echo $id_course;} ?>">
                                 </div>
                                 <?php
                             }
@@ -142,22 +142,34 @@
         }
         ?>
          </form>
-
-        <div class="historique">
             <!-- Les courses passées -->
+            <?php
+            // Requête pour récupérer les courses passées depuis la base de données
+            $request_past_courses = $bdd->query("SELECT * FROM course WHERE date_ < NOW() ORDER BY date_ DESC");
+            while($data_past = $request_past_courses->fetch()) {
+
+                $id_course_past = $data_past['Id_Course'];
+                $date_course_past = $data_past['date_'];
+                $lieu_course_past = $data_past['lieu'];
+            ?>
+        <div class="historique">
+            
             <h1 class="title">Historique des courses</h1>
             <div class="content">
                 <div class="courses">
-                    <div class="date">Il y a 2jrs</div>
+                    <div class="date">Il y a 2jrs <?php echo date("d/m/Y", strtotime($date_course_past)); ?></div>
                     <div class="title">
-                        <h2>Cours du 12 mars 2026</h2>
-                        <p class="lieu">Hippodrome de Cholet</p>
+                        <h2>Cours du <?php echo date("d/m/Y", strtotime($date_course_past)); ?></h2>
+                        <p class="lieu">Hippodrome de <?php echo $lieu_course_past; ?></p>
                     </div>
                     <div class="resultats">
                         <a href="#"><button>voir les résultats</button></a>
                     </div>
                 </div>
             </div>
+            <?php
+            }
+            ?>
         </div>
 
 		<footer class="footer">
