@@ -142,6 +142,9 @@
         }
         ?>
          </form>
+         <div class="historique">
+            
+            <h1 class="title">Historique des courses</h1>
             <!-- Les courses passées -->
             <?php
             // Requête pour récupérer les courses passées depuis la base de données
@@ -152,9 +155,6 @@
                 $date_course_past = $data_past['date_'];
                 $lieu_course_past = $data_past['lieu'];
             ?>
-        <div class="historique">
-            
-            <h1 class="title">Historique des courses</h1>
             <div class="content">
                 <div class="courses">
                     <div class="date">Il y a 2jrs <?php echo date("d/m/Y", strtotime($date_course_past)); ?></div>
@@ -163,7 +163,7 @@
                         <p class="lieu">Hippodrome de <?php echo $lieu_course_past; ?></p>
                     </div>
                     <div class="resultats">
-                        <a href="#"><button>voir les résultats</button></a>
+                        <a href="Resultats.php?id_course=<?= $id_course_past; ?>"><button>voir les résultats</button></a>
                     </div>
                 </div>
             </div>
