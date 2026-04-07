@@ -53,7 +53,7 @@
 					<?php
 					if(isset($_SESSION['type_account'])) {
 						?>
-					<a href="#"><button>s'inscire</button></a>
+					<a href="#"><button>s'inscrire</button></a>
 					<?php } else { ?>
 					<a href="Connection.php"><button>connexion pour s'inscrire</button></a>
 					<?php } ?>
