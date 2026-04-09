@@ -6,10 +6,10 @@
     color: #DFBE4F;
 }
 
-.container .form_add_courses label {
+.container .form_add_courses label, .infos_account label {
     padding: 10px;
 }
-.container .form_add_courses input {
+.container .form_add_courses input, .infos_account input {
     padding: 10px;
     font-size: 20px;
     border: 0;
@@ -18,7 +18,7 @@
     cursor: pointer;
     margin: 10px;
 }
-.container .form_add_courses button {
+.container .form_add_courses button, .infos_account button {
     width: auto;
     padding: 10px;
     font-size: 20px;
@@ -30,7 +30,19 @@
     transition: 0.2s box-shadow;
     margin-top: 20px;
 }
-.container .form_add_courses button:hover {
+.container .form_add_courses button:hover, .infos_account button:hover {
     cursor: pointer;
     box-shadow: 0 0 10px #DFBE4F;
+}
+
+.infos_account {
+    margin-top: 50px;
+}
+
+.update_success {
+    background-color: #0F3D2E;
+    color: #DFBE4F;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }
