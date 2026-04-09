@@ -129,7 +129,7 @@
                 ?>
                 <div class="btn-gestion">
                     <button class="btn-del" type="submit">supprimer une course</button>
-                    <button class="btn-add"><a href="profil.php">ajouter une course</a></button>
+                    <button class="btn-add"><a href="add_courses.php">ajouter une course</a></button>
                 </div>
                 <?php
             } elseif($_SESSION['type_account'] == "p") {

@@ -18,6 +18,7 @@
 			<ul>
 				<li><a href="index.php">Accueil</a></li>
 				<li><a href="courses.php">Course</a></li>
+				<li><a href="add_courses.php">ajouter</a></li>
 				<li><a href="src/script/_Disconnect.php">déconnexion</a></li>
 			</ul>
 		</nav>
@@ -36,29 +37,7 @@
 				// Logique pour les gestionnaires de course
 				?>
 				<div class="container">
-
 					<h1 class="title">Profil Gestionnaire</h1>
-					<h3 class="title">Ajouter une course</h3>
-					<!-- Formualire de création de course -->
-					<form action="src/script/_Add_courses.php" class="form_add_courses" method="post">
-						<div class="input_date">
-							<label for="date_course">Date de la course : </label>
-							<input type="datetime-local" name="date_course" id="date_course" required>
-						</div>
-						<div class="input_place">
-							<label for="place">Lieu de la course : </label>
-							<input type="text" name="place" id="place"required>
-						</div>
-						<div class="input_nbr_places">
-							<label for="nbr_places">Nombre de places : </label>
-							<input type="number" name="nbr_places" id="nbr_places" required>
-						</div>
-
-						<div class="add_btn">
-							<button type="submit">ajouter la course</button>
-						</div>
-					</form>
-
 					<!-- Formulaire d'information de compte -->
 					<?php
 					// Récupérer les informations de l'utilisateur connecté
