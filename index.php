@@ -35,13 +35,14 @@
 			$request_courses = $bdd->query("SELECT * FROM course WHERE date_ >= NOW() ORDER BY date_ ASC");
 			$data = $request_courses->fetch();
 
-				$id_course = $data['Id_Course'];
-				$date_course = $data['date_'];
-				$lieu_course = $data['lieu'];
-				$nbr_places_restantes = $data['place_Restante'];
-				$nbr_places_max = $data['nbr_Max_Place'];
-				$nbr_places_prises = $nbr_places_max - $nbr_places_restantes;
-				?>
+			$id_course = $data['Id_Course'];
+			$date_course = $data['date_'];
+			$lieu_course = $data['lieu'];
+			$nbr_places_restantes = $data['place_Restante'];
+			$nbr_places_max = $data['nbr_Max_Place'];
+			$nbr_places_prises = $nbr_places_max - $nbr_places_restantes;
+			
+			?>
 				
 			<div class="card-1">
 				<!-- Prochaine course -->
@@ -84,7 +85,8 @@
 				<div class="infos-course">
 					<h1 class="title"> <?php if($date_last_course != "Aucune course passée"){ echo "Course du " . date("d/m/Y", strtotime($date_last_course)); } else { echo $date_last_course; } ?></h1>
 					<h3 class="lieu"><?php if($lieu_last_course != "") { echo "Hippodrome de " . $lieu_last_course; } ?></h3>
-					<a href="#"><button>voir les résultats</button></a>
+					<!-- Lien vers les résultats de la dernière course -->
+					<a href="Resultats.php?id=<?php if(isset($id_last_course)) { echo $id_last_course; } ?>"><button>voir les résultats</button></a>
 				</div>
 				<img src="src/img/course-1.jpg" alt="Image de course">
 			</div>

@@ -1,0 +1,29 @@
+table {
+    border: 1px solid #0F3D2E;
+}   
+td {
+    width: 100%;
+    border: 1px solid #0F3D2E;
+}
+.title {
+    text-align: center;
+    color: #DFBE4F;
+}
+.container {
+    width: 500px;
+    margin: 0 auto;
+}
+button {
+    padding: 10px;
+    font-size: 20px;
+    background-color: #DFBE4F;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 900;
+    border: 0;
+    cursor: pointer;
+    transition: .2s box-shadow;
+}
+button:hover {
+    box-shadow: 0 0 10px #DFBE4F;
+}

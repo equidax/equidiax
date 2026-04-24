@@ -25,6 +25,7 @@
 
 		<?php
 		if(isset($_SESSION['id_user'], $_SESSION['type_account'])) {
+			// Vérifier que l'utilisateur est un gestionnaire de course
 			if($_SESSION['type_account'] == "g") {
 				if(isset($_SESSION['message'])) {
 					?>
@@ -53,7 +54,6 @@
 							$mdp = $data['mdp'];
 							$account = $data['type_compte'];
 
-					}
 					?>
 					<div class="infos_account">
 						<h3 class="title">Informations du compte</h3>
@@ -77,13 +77,128 @@
 								}
 								?>
 							</div>
+
 							<div class="btn">
 								<button type="submit">Mettre à jour</button>
+								<button><a style="color: #000; text-decoration: none;" href="gestion.php">Gérer les comptes</a></button>
 							</div>
 						</form>
 					</div>
-					<?php 
+					<?php }
 						}
+					?>
+				</div>
+				<?php
+			} elseif($_SESSION['type_account'] == "p") {
+				// Logique pour les visiteurs
+				?>
+				<div class="container">
+					<h1 class="title">Profil Propriétaire</h1>
+					<!-- Information de compte visiteur -->
+					<?php
+					// Récupérer les informations de l'utilisateur connecté
+					if(isset($_SESSION['id_user'])) {
+
+						$request_info_account = $bdd->prepare('SELECT * FROM utilisateur WHERE Id_Utilisateur = ?');
+						$request_info_account->execute([$_SESSION['id_user']]);
+
+						while($data = $request_info_account->fetch()) {
+							// Infos user
+							$user_id = $data['Id_Utilisateur'];
+							$mail = $data['mail'];
+							$mdp = $data['mdp'];
+							$account = $data['type_compte'];
+
+							?>
+							<div class="infos_account">
+						<h3 class="title">Informations du compte</h3>
+						<form action="src/script/_Update_account.php" method="post">
+							<div class="mail">
+								<label for="email">Adresse mail: </label>
+								<input type="text" id="email" name="email" value="<?= $mail; ?>">
+							</div>
+							<div class="mdp">
+								<label for="mdp">Mot de passe: </label>
+								<input type="password" id="mdp" name="mdp">
+							</div>
+							<div>
+								<label for="account">Type de compte: </label>
+								<?php 
+								// Afficher le type de compte
+								if($account == "p") {
+								?>
+								<input type="text" name="account" id="account" value="Propriétaire" disabled>	
+								<?php
+								}
+								?>
+							</div>
+							<div class="btn">
+								<button type="submit">Mettre à jour</button>
+								<button><a style="color: #000; text-decoration: none;" href="historique.php?id_proprietaire=<?php if(isset($id_proprietaire)) {echo $id_proprietaire;} ?>">Historique</a></button>
+							</div>
+						</form>
+					</div>
+						<?php
+						}
+
+					}
+					?>
+				</div>
+				<?php
+			}
+			elseif($_SESSION['type_account'] == "v") {
+				// Logique pour les visiteurs
+				?>
+				<div class="container">
+					<h1 class="title">Profil Visiteur</h1>
+					<!-- Information de compte visiteur -->
+					<?php
+					// Récupérer les informations de l'utilisateur connecté
+					if(isset($_SESSION['id_user'])) {
+
+						$request_info_account = $bdd->prepare('SELECT * FROM utilisateur WHERE Id_Utilisateur = ?');
+						$request_info_account->execute([$_SESSION['id_user']]);
+
+						while($data = $request_info_account->fetch()) {
+							// Infos user
+							$user_id = $data['Id_Utilisateur'];
+							$mail = $data['mail'];
+							$mdp = $data['mdp'];
+							$account = $data['type_compte'];
+
+							?>
+							<div class="infos_account">
+						<h3 class="title">Informations du compte</h3>
+						<form action="src/script/_Update_account.php" method="post">
+							<div class="mail">
+								<label for="email">Adresse mail: </label>
+								<input type="text" id="email" name="email" value="<?= $mail; ?>">
+							</div>
+							<div class="mdp">
+								<label for="mdp">Mot de passe: </label>
+								<input type="password" id="mdp" name="mdp">
+							</div>
+							<div>
+								<label for="account">Type de compte: </label>
+								<?php 
+								// Afficher le type de compte
+								if($account == "v") {
+								?>
+								<input type="text" name="account" id="account" value="Visiteur" disabled>	
+								<?php
+								}
+								?>
+							</div>
+							<div class="btn">
+								<button type="submit">Mettre à jour</button>
+								<button><a style="color: #000; text-decoration: none;" href="jockey.php">Devenir Jockey</a></button>
+							</div>
+						</form>
+					</div>
+						<?php
+						}
+
+					}
 					?>
 				</div>
 				<?php

@@ -12,6 +12,9 @@ if(isset($_POST['email'], $_POST['password'])) {
     $request_subscribe = $bdd->prepare('INSERT INTO utilisateur (mail, mdp) VALUES(?, ?)');
     $request_subscribe->execute([$email, $password]);
 
+    $request_add_profil = $bdd->prepare('INSERT INTO propriétaire (Id_Propriétaire) VALUES(?)');
+    $request_add_profil->execute([$bdd->lastInsertId()]);
+
     echo "<div class='message'>" . "Utilisateur créé... <a href='../../index.php'>" . "Retour à la page d'accueil!" . "</a>" . "</div>";
 }
 
