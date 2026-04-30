@@ -18,7 +18,13 @@
 			<ul>
 				<li><a href="index.php">Accueil</a></li>
 				<li><a href="courses.php">Course</a></li>
+				<?php 
+				if(isset($_SESSION['type_account'])) {
+					if($_SESSION['type_account'] == "g") {
+					?>
 				<li><a href="add_courses.php">ajouter</a></li>
+				<?php } }?>
+				
 				<li><a href="src/script/_Disconnect.php">déconnexion</a></li>
 			</ul>
 		</nav>
@@ -82,6 +88,16 @@
 								<button type="submit">Mettre à jour</button>
 								<button><a style="color: #000; text-decoration: none;" href="gestion.php">Gérer les comptes</a></button>
 							</div>
+							<?php
+							if(isset($_SESSION['message_update'])) {
+								?>
+								<div class="update_success">
+									<?= $_SESSION['message_update']; ?>
+								</div>
+								<?php
+								unset($_SESSION['message_update']);
+							}
+							?>
 						</form>
 					</div>
 					<?php }

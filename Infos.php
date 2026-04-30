@@ -50,7 +50,7 @@ if(!isset($_SESSION['id_user'])) {
         while($data = $request_user_info->fetch()) {
             $type_account = $data['type_compte'];
             
-            if($type_account == "g") {
+            if($type_account == "g" || $type_account == "v") {
                 // On récupère les informations de la course en fonction de l'ID de la course passé en paramètre dans l'URL
                 if(isset($_GET['id_course'])) {
                     $id_course = htmlspecialchars($_GET['id_course']);
@@ -88,21 +88,24 @@ if(!isset($_SESSION['id_user'])) {
                 <div class="input_donnees">
                     <div class="lieu">
                         <label for="lieu">Lieu de la course : </label>
-                        <input type="text" name="lieu" id="lieu" value="<?php if(isset($lieu_course)) {echo $lieu_course;} ?>" required>
+                        <input type="text" name="lieu" id="lieu" value="<?php if(isset($lieu_course)) {echo $lieu_course;} ?>" required <?php if($type_account == "v") { echo "disabled"; } ?>>
                     </div>
                     <div class="date">
                         <label for="date">Date de la course : </label>
-                        <input type="datetime-local" name="date" id="date" value="<?php if(isset($date_course)) {echo date("Y-m-d\TH:i", strtotime($date_course));} ?>" required>
+                        <input type="datetime-local" name="date" id="date" value="<?php if(isset($date_course)) {echo date("Y-m-d\TH:i", strtotime($date_course));} ?>" required <?php if($type_account == "v") { echo "disabled"; } ?>>
                     </div>
                     <div class="place">
                         <label for="nbr_places">Nombre de places : </label>
-						<input type="number" name="nbr_places" id="nbr_places" value="<?php if(isset($nbr_places_restantes)) {echo $nbr_places_restantes;} ?>" required>
+						<input type="number" name="nbr_places" id="nbr_places" value="<?php if(isset($nbr_places_restantes)) {echo $nbr_places_restantes;} ?>" required <?php if($type_account == "v") { echo "disabled"; } ?>>
                     </div>
                     <div class="place_reste">
                         <label for="nbr_places_reste">Nombre de places restantes : </label>
                         <?php if(isset($nbr_places_prises)) {echo $nbr_places_prises;} ?>
                     </div>
                 </div>
+                <?php 
+                if($type_account == "g") {
+                ?>
                 <div class="btn">
                     <div class="btn-del">
                         <button type="submit" name="delete_course">Supprimer la course</button>
@@ -111,6 +114,17 @@ if(!isset($_SESSION['id_user'])) {
                         <button type="submit" name="save_course">Enregistrer les modifications</button>
                     </div>
                 </div>
+                <?php
+                } elseif ($type_account == "v") {
+                    ?>
+                    <div class="btn">
+                        <div class="btn-jockey">
+                            <button name="delete_course"><a style="color: #000; text-decoration: none;" href="jockey.php">devenir jockey</a></button>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
 
             </form>
             </div>

@@ -52,8 +52,9 @@ require 'src/script/_script.php';
                 <tbody>
                     <tr>
                         <td><?= $mail ?></td>
-                        <td><?php if($type_compte == 'p') { echo 'Propriétaire'; } elseif($type_compte == 'v') { echo 'Vendeur'; } else { echo 'Gestionnaire'; } ?></td>
+                        <td><?php if($type_compte == 'p') { echo 'Propriétaire'; } elseif($type_compte == 'v') { echo 'Visiteur'; } else { echo 'Gestionnaire'; } ?></td>
                         <td><button><a style="text-decoration: none; color: #000;" href="src/script/_Delete_account.php?id=<?= $id_user ?>">Supprimer</a></button></td>
+                        <td><button><a style="text-decoration: none; color: #000;" href="Modif_account.php?id=<?= $id_user ?>">Modifier</a></button></td>
                     </tr>
                 </tbody>
             </table>

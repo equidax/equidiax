@@ -52,7 +52,7 @@
 			<!-- Prochaine course -->
 			<div class="infos-course">
 				<h1 class="title">Course du <?php echo date("d/m/Y", strtotime($date_course)); ?></h1>
-				<h3 class="message">Résultats non attribués</h3>
+				<h3 class="message_resultats">Résultats non attribués</h3>
 				<button>Ajouter les résultats</button>
 		</div>
 		<?php
@@ -77,7 +77,7 @@
 			<!-- Prochaine course -->
 			<div class="infos-course">
 				<h1 class="title">Course du <?php echo date("d/m/Y", strtotime($date_course)); ?></h1>
-				<h3 class="message">Résultats non attribués</h3>
+				<h3 class="message_resultats">Résultats non attribués</h3>
 		</div>
 			<?php
 					}
@@ -102,7 +102,7 @@
 					<!-- Prochaine course -->
 					<div class="infos-course">
 						<h1 class="title">Course du <?php echo date("d/m/Y", strtotime($date_course)); ?></h1>
-						<h3 class="message">Résultats non attribués</h3>
+						<h3 class="message_resultats">Résultats non attribués</h3>
 						<button>Ajouter les résultats</button>
 				</div>
 				<?php

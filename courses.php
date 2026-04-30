@@ -107,7 +107,7 @@
                                     <?php
                                 } elseif($_SESSION['type_account'] == "v") {
                                     ?>
-                                    <a href="#"><button>informations</button></a>
+                                    <a href="Infos.php?id_course=<?= $id_course; ?>"><button>informations</button></a>
                                     <?php
                                 }
                             } else {

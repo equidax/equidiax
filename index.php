@@ -8,13 +8,14 @@
 	</head>
 	<body>
 		<!-- Navigation -->
+		 <!--
 		<nav>
 			<img src="src/img/logo blanc.png" alt="Logo du site" class="logo" />
 			<ul>
 				<li><a href="index.php">Accueil</a></li>
 				<li><a href="courses.php">Course</a></li>
 				<?php
-				session_start();
+				/*session_start();
 				if (isset($_SESSION['id_user'])) {
 				?>
 				<li><a href="profil.php">compte</a></li>
@@ -23,14 +24,37 @@
 				?>
 				<li><a href="Connection.php">connexion</a></li>
 				<?php
-				}
+				} */
 				?>
+			</ul>
+		</nav>
+		-->
+
+		<nav>
+			<img src="src/img/logo blanc.png" alt="Logo du site" class="logo" />
+
+			<!-- Bouton burger -->
+			<div class="burger" onclick="toggleMenu()">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+
+			<ul id="menu">
+				<li><a href="index.php">Accueil</a></li>
+				<li><a href="courses.php">Course</a></li>
+				<?php if (isset($_SESSION['id_user'])) { ?>
+					<li><a href="profil.php">compte</a></li>
+				<?php } else { ?>
+					<li><a href="Connection.php">connexion</a></li>
+				<?php } ?>
 			</ul>
 		</nav>
 
 		<div class="container">
 			<?php
 			include 'src/script/_script.php';
+			session_start();
 			// Requête pour récupérer les courses disponibles depuis la base de données
 			$request_courses = $bdd->query("SELECT * FROM course WHERE date_ >= NOW() ORDER BY date_ ASC");
 			$data = $request_courses->fetch();
@@ -54,7 +78,7 @@
 					<?php
 					if(isset($_SESSION['type_account'])) {
 						?>
-					<a href="#"><button>s'inscrire</button></a>
+					<a href="participer.php?id=<?php if(isset($id_course)) { echo $id_course; } ?>"><button>s'inscrire</button></a>
 					<?php } else { ?>
 					<a href="Connection.php"><button>connexion pour s'inscrire</button></a>
 					<?php } ?>
@@ -101,5 +125,12 @@
 			</div>
 			<p>&copy; 2026 EQUIDIAX. Tous droits réservés.</p>
 		</footer>
+
+		<script>
+			function toggleMenu() {
+				const menu = document.getElementById("menu");
+				menu.classList.toggle("active");
+			}
+		</script>
 	</body>
 </html>

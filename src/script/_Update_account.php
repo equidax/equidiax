@@ -12,15 +12,18 @@ if(isset($_SESSION['id_user'])) {
         if($_POST['account'] == "Gestionnaire") {
             $account = "g";
         } else {
-            $account = "u";
+            $account = "v";
         }
 
         // Requête de mise à jour des informations de l'utilisateur
         $request_update_account = $bdd->prepare('UPDATE utilisateur SET mail = ?, mdp = ?, type_compte = ? WHERE Id_Utilisateur = ?');
         $request_update_account->execute([$email, $mdp, $account, $_SESSION['id_user']]);
 
-        $_SESSION['message'] = "Informations du compte mises à jour avec succès !";
+        $_SESSION['message_update'] = "Informations du compte mises à jour avec succès !";
         header('Location: ../../profil.php');
+    } else {
+        $_SESSION['message_update'] = "Veuillez remplir tous les champs du formulaire.";
+        header('Location: ../../profil.php');   
     }
 } else {
     header('Location: _Disconnect.php');

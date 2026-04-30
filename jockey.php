@@ -4,15 +4,15 @@
 
     if(isset($_SESSION['type_account'])) {
 
-        if(isset($_POST['nom'], $_POST['race'])) {
+        if(isset($_POST['nom'], $_POST['prenom'])) {
             $nom = htmlspecialchars($_POST['nom']);
-            $race = htmlspecialchars($_POST['race']);
+            $prenom = htmlspecialchars($_POST['prenom']);
 
-            $add_jockey = $bdd->prepare("INSERT INTO cheval (nom, race, Id_Propriétaire) VALUES (?, ?, ?)");
-            $add_jockey->execute([$nom, $race, $_SESSION['id_user']]);
+            $add_jockey = $bdd->prepare("INSERT INTO jockey (nom, prenom, id_user) VALUES (?, ?, ?)");
+            $add_jockey->execute([$nom, $prenom, $_SESSION['id_user']]);
 
-            $_SESSION['message'] = "Cheval ajouté avec succès !";
-        }
+            $_SESSION['message'] = "Jockey ajouté avec succès !";
+        } 
 
     } else {
         header('Location: src/script/_Disconnect.php');
@@ -65,16 +65,32 @@
             ?>
             <form action="" method="post">
                 <div class="input-nom">
-                    <label for="nom">Nom du cheval : </label>
+                    <label for="nom">Nom du jockey : </label>
                     <input type="text" id="nom" name="nom" required>
                 </div>
                 <div class="input-race">
-                    <label for="race">Race du cheval : </label>
-                    <input type="text" id="race" name="race" required>
+                    <label for="prenom">Prenom du jockey : </label>
+                    <input type="text" id="prenom" name="prenom" required>
                 </div>
+				<?php
+				// Vérifier que l'utilisateur est déjà propriétaire d'un jockey
+				$request_jockey = $bdd->prepare("SELECT * FROM jockey WHERE id_user = ?");
+				$request_jockey->execute([$_SESSION['id_user']]);
+				$data_jockey = $request_jockey->fetch();
+				if($data_jockey) {
+					?>
+					<div class="message">
+						Vous avez déjà un jockey enregistré.
+					</div>
+					<?php
+				} else {
+				?>
                 <div class="btn">
                     <button type="submit">Enregistrer</button>
                 </div>
+				<?php
+				}
+				?>
             </form>
         </div>
 
